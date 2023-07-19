@@ -6,7 +6,7 @@ pipeline {
   stages{
     stage('1-git-clone'){
       steps{
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-id', url: 'https://github.com/enwokocha/etech-mavenApp.git']]])
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds', url: 'https://github.com/enwokocha/etech-mavenApp.git']])
       }
     }
     stage('2-cleanws'){
